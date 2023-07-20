@@ -6,8 +6,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import axios from 'axios'
 
-const BASE_URL = process.env.BASE_URL
-const KEY = process.env.API_KEY
+const BASE_URL = import.meta.env.BASE_URL
+const KEY = import.meta.env.API_KEY
 
 
 export const Games = () => {
