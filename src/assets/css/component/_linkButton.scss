@@ -1,0 +1,26 @@
+.link-button {
+	background: $dark-background;
+	border-radius: 10px;
+	padding: 1em 1.5em;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: $text-color;
+	transition: $tr-a-3;
+	border: 2px solid $dark-background;
+	
+	&:hover {
+		background: transparent;
+		border-color: $text-color;
+	}
+	
+	&.blue {
+		border-color: $blue;
+		background: $blue;
+		color: $dark-background;
+		
+		&:hover {
+			background: transparent;
+			color: $blue;
+		}
+	}
+}

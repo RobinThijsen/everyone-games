@@ -1,0 +1,57 @@
+body {
+	width: 100vw;
+	min-height: 100vh;
+	background: $background;
+	
+	div#root {
+		width: 100%;
+		min-height: 100%;
+		display: flex;
+		
+		main {
+			width: 100%;
+			margin-left: 125px;
+			
+			&.home, &.games {
+				min-height: 100vh;
+				display: grid;
+				grid-template-columns: 90% 10%;
+				
+				& > div {
+					min-height: 100vh;
+					padding: 5vh 2em;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					gap: 5vh;
+					
+					h2 {
+						color: $text-color;
+						font-size: 1.5rem;
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						gap: .5em;
+						
+						&::after {
+							content: "";
+							width: 50px;
+							height: 3px;
+							background: $blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	body div#root main {
+		
+		&.home, &.games {
+			grid-template-columns: 60% 40%;
+		}
+	}
+}

@@ -1,0 +1,241 @@
+section.sided-info {
+	width: 75px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1vh;
+	padding: 5vh 2vh;
+	position: fixed;
+	top: 0;
+	right: 0;
+	border-left: 2px solid $items-border;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	transition: $tr-a-3;
+	transition-delay: .05s;
+	z-index: 1000;
+	background: $dark-background;
+	
+	& > button {
+		display: block;
+		width: 50px;
+		aspect-ratio: 1/1;
+		background: $items-background;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: $tr-a-3;
+		cursor: pointer;
+		font-size: 1.5rem;
+		color: $text-color;
+		
+		&:hover {
+			background: $blue;
+		}
+	}
+	
+	&.on {
+		width: 90%;
+		transition-delay: 0s;
+		
+		article, h2 {
+			opacity: 1;
+			transition-delay: .05s;
+		}
+		
+		button svg {
+			transform: rotate(180deg);
+		}
+	}
+	
+	h2 {
+		color: $text-color;
+		font-size: 2rem;
+		margin-bottom: 5vh;
+		opacity: 0;
+	}
+	
+	article {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1vh;
+		opacity: 0;
+		transition: $tr-a-3;
+		transition-delay: 0s;
+		
+		&.top-article ul li {
+			
+			&:nth-child(1) a {
+				color: hsla(52, 71%, 51%, 1);
+				
+				&:hover {
+					color: $text-color;
+				}
+			}
+			
+			&:nth-child(3) a {
+				color: hsla(38, 49%, 49%, 1);
+				
+				&:hover {
+					color: $text-color;
+				}
+			}
+		}
+		
+		h3 {
+			color: $text-color;
+			font-size: 1.2rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			
+			&::before {
+				content: "";
+				width: 10%;
+				height: 3px;
+				background: $text-color;
+			}
+		}
+		
+		ul {
+			width: 100%;
+			margin-top: 3vh;
+			display: flex;
+			flex-direction: column;
+			gap: 2vh;
+			
+			li {
+				width: 100%;
+				border-bottom: 2px solid $dark-text-color;
+				padding-bottom: 2vh;
+				overflow: hidden;
+			
+				a {
+					width: 100%;
+					color: $light-dark-text-color;
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					gap: 1vh;
+					position: relative;
+					font-size: .8rem;
+					
+					&:hover {
+						color: $text-color;
+					}
+					
+					p:last-child {
+						display: flex;
+						align-items: center;
+						gap: .5rem;
+					}
+				}
+				
+				&:last-child {
+					border: none;
+				}
+			}
+		}
+	}
+	
+	form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2vh;
+		
+		div.platforms-wrapper {
+			height: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			
+			span {
+				display: block;
+				width: 100%;
+				aspect-ratio: 1/1;
+				position: relative;
+				
+				input {
+					appearance: none;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					aspect-ratio: 1/1;
+					z-index: 400;
+					cursor: pointer;
+					
+					&:hover~div {
+						background: $dark-text-color;
+					}
+					
+					&:checked~div {
+						background: $blue;
+					}
+				}
+				
+				div {
+					width: 50px;
+					aspect-ratio: 1/1;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: $text-color;
+					font-size: 1.3rem;
+					background: $dark-background;
+					transition: $tr-a-3;
+					position: relative;
+					z-index: 350;
+					border-radius: 10px;
+				}
+			}
+		}
+		
+		input[type=date] {
+			width: 100%;
+			border-radius: 10px;
+			border: 2px solid $dark-text-color;
+			background: transparent;
+			transition: $tr-a-3;
+			color: $text-color;
+			padding: .5rem;
+			
+			&::placeholder {
+				color: $dark-text-color;
+			}
+			
+			&:hover, &:focus {
+				border-color: $text-color;
+			}
+		}
+		
+		button {
+			cursor: pointer;
+			padding: .5rem 1rem;
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	section.sided-info {
+		width: 35%;
+		
+		& > button {
+			display: none;
+		}
+		
+		article, h2 {
+			opacity: 1;
+		}
+	}
+}

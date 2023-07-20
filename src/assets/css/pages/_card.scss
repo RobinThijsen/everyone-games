@@ -1,0 +1,156 @@
+main.card {
+	display: grid;
+	grid-template-columns: 70% 30%;
+	gap: 2vh;
+	
+	section {
+		padding: 5vh;
+		color: $text-color;
+		display: flex;
+		flex-direction: column;
+		gap: 3vh;
+		
+		figure {
+			width: 100%;
+			border-radius: 20px;
+			overflow: hidden;
+			position: relative;
+			
+			img {
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-blend-mode: multiply;
+			}
+			
+			cite {
+				position: absolute;
+				top: .5rem;
+				right: .5rem;
+				width: 50px;
+				aspect-ratio: 1/1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1rem;
+				border-radius: 50px;
+				background: $text-color;
+				color: $dark-background;
+				font-weight: 600;
+			}
+		}
+		
+		div {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			
+			cite {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 1vh;
+			}
+		}
+		
+		p.desc {
+			display: -webkit-box;
+			-webkit-line-clamp: 5; /* number of lines to show */
+			line-clamp: 5; 
+			-webkit-box-orient: vertical;
+			position: relative;
+			overflow: hidden;
+			
+			&.full {
+				display: block;
+			}
+			
+			&.moreLine {
+				display: flex;
+			}
+		}
+		
+		span.more {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			color: $text-color;
+			font-size: 1rem;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			padding: .25rem .5rem;
+			cursor: pointer;
+			z-index: 1600;
+			padding-bottom: 5vh;
+			border-bottom: 2px solid $dark-text-color;
+			margin-bottom: 2vh;
+		}
+		
+		&:last-child {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		ul.add-link {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			
+			a {
+				width: 45px;
+				aspect-ratio: 1/1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 100px;
+				position: relative;
+				background: $dark-background;
+				transition: $tr-a-3;
+				color: $text-color;
+				font-size: 1.3rem;
+				
+				svg, span {
+					position: relative;
+				}
+				
+				span {
+					width: 35px;
+					height: 35px;
+					border-radius: 100px;
+					border: 3px solid $text-color;
+					transform: rotate(-45deg);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 700;
+					font-size: 1.5rem;
+				}
+				
+				&::before {
+					content: "";
+					width: 0%;
+					height: 0%;
+					background: $dark-background;
+					border-radius: 100%;
+					position: absolute;
+					transition: $tr-a-3;
+					transition-delay: .1s;
+				}
+				
+				&:hover {
+					background: $text-color;
+					
+					&::before {
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+}

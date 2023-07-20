@@ -1,0 +1,61 @@
+main.about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 5vh 5%;
+	gap: 5vh;
+	
+	* {
+		color: $text-color;
+	}
+	
+	h3 {
+		font-size: 1.5rem;
+	}
+	
+	p {
+		letter-spacing: 1px;
+	}
+	
+	img {
+		width: 100%;
+		border: 2px solid $text-color;
+		border-radius: 20px;
+		padding: 1rem;
+	}
+	
+	div.separator {
+		width: 100%;
+		height: 3px;
+		background: $dark-text-color;
+	}
+	
+	div.link-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	a.link-button {
+		font-size: 1rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		
+		&.blue {
+			color: $text-color;
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			
+			svg {
+				font-size: 1.2rem;
+			}
+			
+			&:hover {
+				color: $blue;
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+// utils
+@import "utils/_variables", "utils/_mixins";
+
+// bases
+@import "bases/_fonts", "bases/_resets";
+
+// component
+@import "component/_header", "component/_sided-info", "component/_search";
+@import "component/_loading", "component/_endMessage";
+@import "component/_linkButton", "component/_link";
+@import  "component/_list", "component/_listInfo";
+
+// layout
+
+
+// pages
+@import "pages/_all", "pages/_home", "pages/_about", "pages/_games", "pages/_card";

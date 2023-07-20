@@ -1,0 +1,106 @@
+.list-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 4vh;
+	border-bottom: 2px solid $dark-text-color;
+	padding-bottom: 5vh;
+	
+	a.list-item {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: .5rem;
+		
+		figure {
+			width: 100%;
+			//height: 30%;
+			border-radius: 20px;
+			overflow: hidden;
+			position: relative;
+			
+			&::after {
+				content: "";
+				width: 100%;
+				height: 100%;
+				border-radius: 20px;
+				background: transparent;
+				position: absolute;
+				z-index: 200;
+				top: 0;
+				left: 0;
+				transition: $tr-a-3;
+			}
+			
+			img {
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-blend-mode: multiply;
+				position: relative;
+				z-index: 150;
+				border-radius: 20px;
+			}
+			
+			cite {
+				position: absolute;
+				top: .5rem;
+				right: .5rem;
+				z-index: 2000;
+				width: 50px;
+				aspect-ratio: 1/1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50px;
+				background: $text-color;
+				color: $dark-background;
+				font-weight: 600;
+			}
+		}
+		
+		div {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			color: $text-color;
+			
+			cite {
+				display: flex;
+				align-items: center;
+				gap: 1vh;
+			}
+		}
+		
+		&:hover figure::after {
+			background: hsla(0, 0%, 0%, .3);
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.list-wrapper {
+		flex-direction: row;
+		
+		a.list-item {
+			width: calc(50% - 2vh);
+			
+			figure {
+				height: 200px;
+			}
+			
+			&:first-child {
+				width: 100%;
+				
+				figure {
+					height: 300px;
+				}
+			}
+		}
+	}
+}
