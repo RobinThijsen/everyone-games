@@ -6,9 +6,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.BASE_URL
-const KEY = import.meta.env.API_KEY
-
+const API_URL = import.meta.env.API_URL
+const API_KEY = import.meta.env.API_KEY
 
 export const Games = () => {
 	const [hasMore, setHasMore] = useState(true)
@@ -18,7 +17,7 @@ export const Games = () => {
 	const [values, setValues] = useState("")
 	
 	useEffect(() => {
-		axios.get(BASE_URL + "games?page=1&page_size=20&key=" + KEY)
+		axios.get(API_URL + "games?page=1&page_size=20&key=" + API_KEY)
 		.then(res => setGames(res.data.results))
 		.catch(err => console.log("ERR => While trying to hit API values:", err))
 	}, [])
@@ -29,7 +28,7 @@ export const Games = () => {
 	 */
 	const add20More = () => {
 		setIsLoading(true)
-		let url = BASE_URL + "games?page=" + page + "&page_size=20&key=" + KEY
+		let url = API_URL + "games?page=" + page + "&page_size=20&key=" + API_KEY
 		axiosGet(url)
 	}
 	
@@ -58,7 +57,7 @@ export const Games = () => {
 	 *
 	 */
 	const handleChange = () => {
-		let url = BASE_URL + "games?search=" + values + "&page=1&page_size=100&key=" + KEY
+		let url = API_URL + "games?search=" + values + "&page=1&page_size=100&key=" + API_KEY
 		setPage(2)
 		axios.get(url)
 		.then(res => setGames(res.data.results))

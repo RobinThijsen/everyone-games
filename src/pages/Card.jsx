@@ -8,7 +8,7 @@ import { faReddit } from '@fortawesome/free-brands-svg-icons'
 
 import axios from 'axios'
 
-const BASE_URL = import.meta.env.BASE_URL
+const API_URL = import.meta.env.API_URL
 const KEY = import.meta.env.API_KEY
 
 export const Card = () => {
@@ -17,7 +17,7 @@ export const Card = () => {
 	const [more, setMore] = useState("+ more")
 	
 	useEffect(() => {
-		let url = BASE_URL + "games/" + name + "?key=" + KEY
+		let url = API_URL + "games/" + name + "?key=" + KEY
 		axios.get(url)
 		.then(res => setGame(res.data))
 		.catch(err => console.log("ERR => While trying to hit API values:", err + " [get == " + url + "]"))
