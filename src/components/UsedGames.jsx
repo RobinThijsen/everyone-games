@@ -6,7 +6,7 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 
-export const UsedGames = ({ KEY, title, id }) => {
+export const UsedGames = ({ KEY, BASE_URL, title, id }) => {
 	const [games, setGames] = useState([])
 	let i = 0
 	
@@ -24,7 +24,7 @@ export const UsedGames = ({ KEY, title, id }) => {
 	}
 	
 	useEffect(() => {
-		let url = "https://api.rawg.io/api/games?ordering=-released&dates="
+		let url = BASE_URL + "games?ordering=-released&dates="
 		url += "1970-01-01," + actuallDate()
 		url += "&platforms=" 
 		for (let y = 0; y < id.length - 1; y++) {

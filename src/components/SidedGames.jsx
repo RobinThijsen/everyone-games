@@ -6,7 +6,7 @@ import { faPlaystation, faXbox } from '@fortawesome/free-brands-svg-icons'
 
 import axios from 'axios'
 
-export const SidedGames = ({ KEY, setGames }) => {
+export const SidedGames = ({ KEY, BASE_URL, setGames }) => {
 	const [platforms, setPlatforms] = useState(() => {
 		const local = JSON.parse(localStorage.getItem('everyone-games_platforms'))
 		if (local != undefined) return local
@@ -15,7 +15,7 @@ export const SidedGames = ({ KEY, setGames }) => {
 	
 	const handleSubmit = () => {
 		console.log("submit")
-		let url = "https://api.rawg.io/api/games?key=" + KEY
+		let url = BASE_URL + "games?key=" + KEY
 		if (platforms.play || platforms.xbox || platforms.pc) {
 			url += "&platforms="
 			

@@ -5,7 +5,10 @@ import { List } from '../components/List'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
 import axios from 'axios'
-const KEY = "cae86541b7054c9b9e2802eb173c1521"
+
+const BASE_URL = process.env.BASE_URL
+const KEY = process.env.API_KEY
+
 
 export const Games = () => {
 	const [hasMore, setHasMore] = useState(true)
@@ -15,7 +18,7 @@ export const Games = () => {
 	const [values, setValues] = useState("")
 	
 	useEffect(() => {
-		axios.get("https://api.rawg.io/api/games?page=1&page_size=20&key=" + KEY)
+		axios.get(BASE_URL + "games?page=1&page_size=20&key=" + KEY)
 		.then(res => setGames(res.data.results))
 		.catch(err => console.log("ERR => While trying to hit API values:", err))
 	}, [])
@@ -26,7 +29,7 @@ export const Games = () => {
 	 */
 	const add20More = () => {
 		setIsLoading(true)
-		let url = "https://api.rawg.io/api/games?page=" + page + "&page_size=20&key=" + KEY
+		let url = BASE_URL + "games?page=" + page + "&page_size=20&key=" + KEY
 		axiosGet(url)
 	}
 	
@@ -55,7 +58,7 @@ export const Games = () => {
 	 *
 	 */
 	const handleChange = () => {
-		let url = "https://api.rawg.io/api/games?search=" + values + "&page=1&page_size=100&key=" + KEY
+		let url = BASE_URL + "games?search=" + values + "&page=1&page_size=100&key=" + KEY
 		setPage(2)
 		axios.get(url)
 		.then(res => setGames(res.data.results))

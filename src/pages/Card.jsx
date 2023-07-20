@@ -7,7 +7,9 @@ import { faCalendar, faLink } from '@fortawesome/free-solid-svg-icons'
 import { faReddit } from '@fortawesome/free-brands-svg-icons'
 
 import axios from 'axios'
-const KEY = "cae86541b7054c9b9e2802eb173c1521"
+
+const BASE_URL = process.env.BASE_URL
+const KEY = process.env.API_KEY
 
 export const Card = () => {
 	const { name } = useParams()
@@ -15,7 +17,7 @@ export const Card = () => {
 	const [more, setMore] = useState("+ more")
 	
 	useEffect(() => {
-		let url = "https://api.rawg.io/api/games/" + name + "?key=" + KEY
+		let url = BASE_URL + "games/" + name + "?key=" + KEY
 		axios.get(url)
 		.then(res => setGame(res.data))
 		.catch(err => console.log("ERR => While trying to hit API values:", err + " [get == " + url + "]"))

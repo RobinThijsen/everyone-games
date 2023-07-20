@@ -6,12 +6,13 @@ import { UsedGames } from '../components/UsedGames'
 
 import { NavLink } from 'react-router-dom'
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios'
-const KEY = "cae86541b7054c9b9e2802eb173c1521"
+
+const BASE_URL = process.env.BASE_URL
+const KEY = process.env.API_KEY
 
 export const Home = () => {
 	const [games, setGames] = useState([])
@@ -25,7 +26,7 @@ export const Home = () => {
 	}
 	
 	useEffect(() => {
-		axios.get("https://api.rawg.io/api/games?pages=1&pages_size=9&key=" + KEY)
+		axios.get(BASE_URL + "games?pages=1&pages_size=9&key=" + KEY)
 		.then(res => setGames(res.data.results))
 		.catch(err => console.log("ERR => While trying to hit API values:", err))
 	}, [])
@@ -50,13 +51,15 @@ export const Home = () => {
 					<FontAwesomeIcon icon={faAngleLeft} />
 				</button>
 				<h2>Big 3 (Most populars games)</h2>
-				<Top KEY={ KEY } />
+				<Top KEY={ KEY } BASE_URL={ BASE_URL } />
 				<UsedGames 
-					KEY={ KEY } 
+					KEY={ KEY }
+					BASE_URL={ BASE_URL } 
 					title="playstation" 
 				    id={ [16, 18, 187] } />
 				<UsedGames 
 					KEY={ KEY }
+					BASE_URL={ BASE_URL }
 					title="xbox"
 					id={ [1, 14, 186] }
 				/>
