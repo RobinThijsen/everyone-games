@@ -24,7 +24,7 @@ export const About = () => {
 			<div className="separator"></div>
 			<div className="link-wrapper">
 				<a className="link-button" href="https://rawg.io/" target="_blank">RAWG</a>
-				<a className="link-button blue" href="" target="_blank">
+				<a className="link-button blue" href="https://github.com/RobinThijsen" target="_blank">
 					<FontAwesomeIcon icon={faGithub} />My Page
 				</a>
 			</div>
