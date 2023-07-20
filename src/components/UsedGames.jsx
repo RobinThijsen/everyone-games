@@ -6,7 +6,7 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 
-export const UsedGames = ({ KEY, BASE_URL, title, id }) => {
+export const UsedGames = ({ API_KEY, API_URL, title, id }) => {
 	const [games, setGames] = useState([])
 	let i = 0
 	
@@ -24,13 +24,13 @@ export const UsedGames = ({ KEY, BASE_URL, title, id }) => {
 	}
 	
 	useEffect(() => {
-		let url = BASE_URL + "games?ordering=-released&dates="
+		let url = API_URL + "games?ordering=-released&dates="
 		url += "1970-01-01," + actuallDate()
 		url += "&platforms=" 
 		for (let y = 0; y < id.length - 1; y++) {
 			url += id[y] + ","
 		}
-		url += id[id.length - 1] + "&key=" + KEY
+		url += id[id.length - 1] + "&key=" + API_KEY
 		
 		axios.get(url)
 		.then(res => setGames(res.data.results))

@@ -51,14 +51,17 @@ export const Home = () => {
 					<FontAwesomeIcon icon={faAngleLeft} />
 				</button>
 				<h2>Big 3 (Most populars games)</h2>
-				<Top KEY={ API_KEY } API_URL={ API_URL } />
+				<Top 
+					API_KEY={ API_KEY }
+					API_URL={ API_URL }
+				/>
 				<UsedGames 
-					KEY={ API_KEY }
+					API_KEY={ API_KEY }
 					API_URL={ API_URL } 
 					title="playstation" 
 				    id={ [16, 18, 187] } />
 				<UsedGames 
-					KEY={ API_KEY }
+					API_KEY={ API_KEY }
 					API_URL={ API_URL }
 					title="xbox"
 					id={ [1, 14, 186] }

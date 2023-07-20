@@ -7,12 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrophy } from '@fortawesome/free-solid-svg-icons'
 
 
-export const Top = ({ KEY, BASE_URL }) => {
+export const Top = ({ API_KEY, API_URL }) => {
 	const [games, setGames] = useState([])
 	let i = 0
 	
 	useEffect(() => {
-		axios.get(BASE_URL + "games?ordering=-rating&key=" + KEY)
+		axios.get(API_URL + "games?ordering=-rating&key=" + API_KEY)
 		.then(res => setGames(res.data.results))
 		.catch(err => console.log("ERR => While trying to hit API values:", err))
 	}, [])
