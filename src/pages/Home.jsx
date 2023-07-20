@@ -11,8 +11,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 
 import axios from 'axios'
 
-const API_URL = import.meta.env.API_URL
-const KEY = import.meta.env.API_KEY
+const API_URL = "https://api.rawg.io/api/"
+const API_KEY = "cae86541b7054c9b9e2802eb173c1521"
 
 export const Home = () => {
 	const [games, setGames] = useState([])
@@ -26,7 +26,7 @@ export const Home = () => {
 	}
 	
 	useEffect(() => {
-		axios.get(API_URL + "games?pages=1&pages_size=9&key=" + KEY)
+		axios.get(API_URL + "games?pages=1&pages_size=9&key=" + API_KEY)
 		.then(res => setGames(res.data.results))
 		.catch(err => console.log("ERR => While trying to hit API values:", err))
 	}, [])
@@ -51,14 +51,14 @@ export const Home = () => {
 					<FontAwesomeIcon icon={faAngleLeft} />
 				</button>
 				<h2>Big 3 (Most populars games)</h2>
-				<Top KEY={ KEY } API_URL={ API_URL } />
+				<Top KEY={ API_KEY } API_URL={ API_URL } />
 				<UsedGames 
-					KEY={ KEY }
+					KEY={ API_KEY }
 					API_URL={ API_URL } 
 					title="playstation" 
 				    id={ [16, 18, 187] } />
 				<UsedGames 
-					KEY={ KEY }
+					KEY={ API_KEY }
 					API_URL={ API_URL }
 					title="xbox"
 					id={ [1, 14, 186] }

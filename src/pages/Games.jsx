@@ -6,8 +6,8 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 
 import axios from 'axios'
 
-const API_URL = import.meta.env.API_URL
-const API_KEY = import.meta.env.API_KEY
+const API_URL = "https://api.rawg.io/api/"
+const API_KEY = "cae86541b7054c9b9e2802eb173c1521"
 
 export const Games = () => {
 	const [hasMore, setHasMore] = useState(true)

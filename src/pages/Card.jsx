@@ -8,8 +8,8 @@ import { faReddit } from '@fortawesome/free-brands-svg-icons'
 
 import axios from 'axios'
 
-const API_URL = import.meta.env.API_URL
-const KEY = import.meta.env.API_KEY
+const API_URL = "https://api.rawg.io/api/"
+const API_KEY = "cae86541b7054c9b9e2802eb173c1521"
 
 export const Card = () => {
 	const { name } = useParams()
@@ -17,7 +17,7 @@ export const Card = () => {
 	const [more, setMore] = useState("+ more")
 	
 	useEffect(() => {
-		let url = API_URL + "games/" + name + "?key=" + KEY
+		let url = API_URL + "games/" + name + "?key=" + API_KEY
 		axios.get(url)
 		.then(res => setGame(res.data))
 		.catch(err => console.log("ERR => While trying to hit API values:", err + " [get == " + url + "]"))
