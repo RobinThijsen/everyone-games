@@ -2,8 +2,8 @@
 
 ## Work for my learning progress at BeCode
 
-tools
-: html
-: scss
-: js
-: react
+### tools
+* html
+* scss
+* js
+* react
